@@ -1,0 +1,5 @@
+/Users/silas/Documents/GitHub/Greed2/obj/Debug/net6.0/Greed2.csproj.AssemblyReference.cache
+/Users/silas/Documents/GitHub/Greed2/obj/Debug/net6.0/Greed2.GeneratedMSBuildEditorConfig.editorconfig
+/Users/silas/Documents/GitHub/Greed2/obj/Debug/net6.0/Greed2.AssemblyInfoInputs.cache
+/Users/silas/Documents/GitHub/Greed2/obj/Debug/net6.0/Greed2.AssemblyInfo.cs
+/Users/silas/Documents/GitHub/Greed2/obj/Debug/net6.0/Greed2.csproj.CoreCompileInputs.cache
