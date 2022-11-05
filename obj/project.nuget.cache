@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "UtZG8cfqsnDKC+FCAeTNAcqRM1Ar6HVdVPhqex10VE+K+NwVak8OnhFEeNsBfmSuo9MsTrZFXgvK3c/1FYZ0jw==",
+  "dgSpecHash": "FM5p4RMG7IqLuRE+ALSJe0+jj3eeDOicYkwenxfyDnA5+wYeZY6bIwkSYNfXXIg8Pi6FMeAEYNxHfk5/mX/CqQ==",
   "success": true,
   "projectFilePath": "/Users/silas/Documents/GitHub/Greed2/Greed2.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/silas/.nuget/packages/raylib-cs/4.2.0.1/raylib-cs.4.2.0.1.nupkg.sha512",
+    "/Users/silas/.nuget/packages/system.numerics.vectors/4.5.0/system.numerics.vectors.4.5.0.nupkg.sha512"
+  ],
   "logs": []
 }
