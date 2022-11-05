@@ -5,13 +5,14 @@ namespace Greed
 {
     class Player
     {
-        Vector2 playerPosition = new Vector2(150, 375);
+        public Vector2 playerPosition = new Vector2(240, 400);
+        public int playerRadius = 5;
 
         public void movePlayer()
         {
             
             var playerSpeed = 4;
-            int playerRadius = 10;
+            
                 if (Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT)) {
                     playerPosition.X += playerSpeed;
                 }
@@ -20,16 +21,9 @@ namespace Greed
                     playerPosition.X -= playerSpeed;
                 }
 
-                // if (Raylib.IsKeyDown(KeyboardKey.KEY_UP)) {
-                //     playerPosition.Y -= playerSpeed;
-                // }
-
-                // if (Raylib.IsKeyDown(KeyboardKey.KEY_DOWN)) {
-                //     playerPosition.Y  += playerSpeed;
-                // }
-
                 Raylib.DrawCircleV(playerPosition, playerRadius, Color.BLUE);
-            
+                //Raylib.DrawTextEx("#", 240, 800, 20, Color.WHITE);
+                
             
         }
     }
