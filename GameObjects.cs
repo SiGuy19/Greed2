@@ -5,9 +5,11 @@ namespace Greed
     class GameObject {
     public Vector2 Position { get; set; } = new Vector2(0, 0);
     public Vector2 Velocity { get; set; } = new Vector2(0, 0);
+    public Rectangle HitBox;
 
     virtual public void Draw() {
         // Base game objects do not have anything to draw
+        HitBox = new Rectangle((int)Position.X, (int)Position.Y, 10, 10);
     }
 
     public void Move() {
@@ -15,7 +17,10 @@ namespace Greed
         NewPosition.X += Velocity.X;
         NewPosition.Y += Velocity.Y;
         this.Position = NewPosition;
+        HitBox.x = NewPosition.X;
+        HitBox.y = NewPosition.Y;
     }
+
 }
 
 class ColoredObject: GameObject {
@@ -24,10 +29,13 @@ class ColoredObject: GameObject {
     public ColoredObject(Color color) {
         Color = color;
     }
+
 }
 
 class GameSquare: ColoredObject {
     public int Size { get; set; }
+
+
 
     public GameSquare(Color color, int size): base(color) {
         Size = size;
@@ -35,21 +43,24 @@ class GameSquare: ColoredObject {
 
     override public void Draw() {
         Raylib.DrawRectangle((int)Position.X, (int)Position.Y, Size, Size, Color);
+        
     }
+
+    
 }
 
-class GameCircle: ColoredObject {
+// class GameCircle: ColoredObject {
 
-    public int Radius { get; set; }
+//     public int Radius { get; set; }
 
-    public GameCircle(Color color, int radius): base(color) {
-        Radius = radius;
-    }
-    override public void Draw()
-    {
-        Raylib.DrawCircle((int)Position.X, (int)Position.Y, Radius, Color);
-    }
-}
+//     public GameCircle(Color color, int radius): base(color) {
+//         Radius = radius;
+//     }
+//     override public void Draw()
+//     {
+//         Raylib.DrawCircle((int)Position.X, (int)Position.Y, Radius, Color);
+//     }
+// }
 
 class GameText: ColoredObject {
     public string Text { get; set;}
@@ -62,6 +73,8 @@ class GameText: ColoredObject {
     {
         Raylib.DrawText(Text, (int)Position.X, (int)Position.Y, 20, Color);
     }
+
+
 }
 
 }

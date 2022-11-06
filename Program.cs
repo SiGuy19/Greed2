@@ -7,6 +7,7 @@ namespace Greed
     {
         static Player player = new Player();
         static GameSquare gameSquare = new GameSquare(Color.RED, 10);
+        static Score score = new Score();
         public static void Main()
         {
 
@@ -14,7 +15,7 @@ namespace Greed
             var ScreenWidth = 800;
             var Objects = new List<GameObject>();
             var Random = new Random();
-
+            
 
 
             Raylib.InitWindow(ScreenWidth, ScreenHeight, "Greed");
@@ -22,9 +23,11 @@ namespace Greed
 
             while (!Raylib.WindowShouldClose())
             {
+                int newScore = score.getScore();
+                Raylib.DrawText($"{newScore}", 12, 34, 25, Color.WHITE);
                 player.movePlayer();
                 // Add a new random object to the screen every iteration of our game loop
-                var whichType = Random.Next(3);
+                var whichType = Random.Next(4);
 
                 // Generate a random velocity for this object
                 var randomY = 2;
@@ -38,10 +41,9 @@ namespace Greed
                 Random random = new Random();
                 int randIndexPosition = random.Next(ypositions.Count);
                 int randomPosition = ypositions[randIndexPosition];
-                // Each object will start about the center of the screen
                 var position = new Vector2(randomPosition, 0);
 
-                var rock = new Rectangle((int)gameSquare.Position.X, (int)gameSquare.Position.Y, gameSquare.Size, gameSquare.Size);
+                
 
                 List<Color> colors = new List<Color>()
                 {
@@ -60,13 +62,7 @@ namespace Greed
                         square.Velocity = new Vector2(randomX, randomY);
                         Objects.Add(square);
                         break;
-                    // case 1:
-                    //     Console.WriteLine("Creating a circle");
-                    //     var circle = new GameCircle(Color.RED, 20);
-                    //     circle.Position = position;
-                    //     circle.Velocity = new Vector2(randomX, randomY);
-                    //     Objects.Add(circle);
-                    //     break;
+                    
                     case 1:
                         Console.WriteLine("Creating some text");
                         var text = new GameText(randomColor, "*");
@@ -88,19 +84,23 @@ namespace Greed
                 foreach (var obj in Objects)
                 {
                     obj.Draw();
-                }
-                if (Raylib.CheckCollisionCircleRec(player.playerPosition, player.playerRadius, rock))
-                {
-                    Raylib.DrawText("You did it!!!!", 12, 34, 100, Color.WHITE);
+
+                    if (Raylib.CheckCollisionCircleRec(player.playerPosition, player.playerRadius, obj.HitBox))
+                    {
+                        if (obj is GameText) {
+                            score.addScore();                            
+                        }
+                        else if (obj is GameSquare) {
+                            score.removeScore();
+                        }
+                    }
+                        obj.Move();
+                    
                 }
 
                 Raylib.EndDrawing();
 
                 // Move all of the objects to their next location
-                foreach (var obj in Objects)
-                {
-                    obj.Move();
-                }
             }
 
             Raylib.CloseWindow();
