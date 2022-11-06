@@ -15,7 +15,7 @@ namespace Greed
             var Objects = new List<GameObject>();
             var Random = new Random();
 
-            
+
 
             Raylib.InitWindow(ScreenWidth, ScreenHeight, "Greed");
             Raylib.SetTargetFPS(60);
@@ -27,7 +27,7 @@ namespace Greed
                 var whichType = Random.Next(3);
 
                 // Generate a random velocity for this object
-                var randomY = Random.Next(2);
+                var randomY = 2;
                 var randomX = Random.Next(0);
 
                 List<int> ypositions = new List<int>();
@@ -49,9 +49,10 @@ namespace Greed
                 };
                 int randIndexColor = random.Next(colors.Count);
                 Color randomColor = colors[randIndexColor];
-                
 
-                switch (whichType) {
+
+                switch (whichType)
+                {
                     case 0:
                         Console.WriteLine("Creating a square");
                         var square = new GameSquare(randomColor, 10);
@@ -75,27 +76,29 @@ namespace Greed
                         break;
                     default:
                         break;
-                
+
                 }
 
                 Raylib.BeginDrawing();
                 Raylib.ClearBackground(Color.BLACK);
 
-                
+
 
                 // Draw all of the objects in their current location
-                foreach (var obj in Objects) {
+                foreach (var obj in Objects)
+                {
                     obj.Draw();
                 }
                 if (Raylib.CheckCollisionCircleRec(player.playerPosition, player.playerRadius, rock))
                 {
                     Raylib.DrawText("You did it!!!!", 12, 34, 100, Color.WHITE);
-                }  
+                }
 
                 Raylib.EndDrawing();
 
                 // Move all of the objects to their next location
-                foreach (var obj in Objects) {
+                foreach (var obj in Objects)
+                {
                     obj.Move();
                 }
             }

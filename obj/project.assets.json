@@ -123,19 +123,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/silas/.nuget/packages/": {}
+    "/Users/adenennis/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/silas/Documents/GitHub/Greed2/Greed2.csproj",
+      "projectUniqueName": "/Users/adenennis/Documents/GitHub/Greed2/Greed2.csproj",
       "projectName": "Greed2",
-      "projectPath": "/Users/silas/Documents/GitHub/Greed2/Greed2.csproj",
-      "packagesPath": "/Users/silas/.nuget/packages/",
-      "outputPath": "/Users/silas/Documents/GitHub/Greed2/obj/",
+      "projectPath": "/Users/adenennis/Documents/GitHub/Greed2/Greed2.csproj",
+      "packagesPath": "/Users/adenennis/.nuget/packages/",
+      "outputPath": "/Users/adenennis/Documents/GitHub/Greed2/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/silas/.nuget/NuGet/NuGet.Config"
+        "/Users/adenennis/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -180,7 +180,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/6.0.402/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.401/RuntimeIdentifierGraph.json"
       }
     }
   }
