@@ -6,7 +6,7 @@ namespace Greed
     class Player
     {
         public Vector2 playerPosition = new Vector2(240, 400);
-        public int playerRadius = 5;
+        public int playerRadius = 7;
 
         public void movePlayer()
         {

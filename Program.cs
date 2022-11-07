@@ -19,7 +19,7 @@ namespace Greed
 
 
             Raylib.InitWindow(ScreenWidth, ScreenHeight, "Greed");
-            Raylib.SetTargetFPS(60);
+            Raylib.SetTargetFPS(50);
 
             while (!Raylib.WindowShouldClose())
             {
@@ -27,7 +27,7 @@ namespace Greed
                 Raylib.DrawText($"{newScore}", 12, 34, 25, Color.WHITE);
                 player.movePlayer();
                 // Add a new random object to the screen every iteration of our game loop
-                var whichType = Random.Next(4);
+                var whichType = Random.Next(20);
 
                 // Generate a random velocity for this object
                 var randomY = 2;
@@ -81,17 +81,19 @@ namespace Greed
 
 
                 // Draw all of the objects in their current location
-                foreach (var obj in Objects)
+                foreach (var obj in Objects.ToList())
                 {
                     obj.Draw();
 
                     if (Raylib.CheckCollisionCircleRec(player.playerPosition, player.playerRadius, obj.HitBox))
                     {
                         if (obj is GameText) {
-                            score.addScore();                            
+                            score.addScore();
+                            Objects.Remove(obj);                           
                         }
                         else if (obj is GameSquare) {
                             score.removeScore();
+                            Objects.Remove(obj);
                         }
                     }
                         obj.Move();
