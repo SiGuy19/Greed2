@@ -22,9 +22,6 @@ namespace Greed
                 }
 
                 Raylib.DrawCircleV(playerPosition, playerRadius, Color.BLUE);
-                //Raylib.DrawTextEx("#", 240, 800, 20, Color.WHITE);
-                
-            
         }
     }
 }
