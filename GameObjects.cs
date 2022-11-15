@@ -9,7 +9,7 @@ namespace Greed
 
     virtual public void Draw() {
         // Base game objects do not have anything to draw
-        HitBox = new Rectangle((int)Position.X, (int)Position.Y, 15, 15);
+        HitBox = new Rectangle((int)Position.X, (int)Position.Y, 30, 30);
     }
 
     public void Move() {
